@@ -28,8 +28,6 @@ namespace Data_Generic {
   //
   auto zipAll(const any& f, const any::array& xs, const any::array& ys) -> bool {
     const auto length = std::min(xs.size(), ys.size());
-    auto itx = xs.cbegin();
-    auto ity = ys.cbegin();
     for (any::array::size_type i = 0; i < length; i++) {
       if (not f(xs[i])(ys[i])) {
         return false;
@@ -49,8 +47,6 @@ namespace Data_Generic {
     const auto xlen = xs.size();
     const auto ylen = ys.size();
     const auto length = std::min(xlen, ylen);
-    auto itx = xs.cbegin();
-    auto ity = ys.cbegin();
     for (any::array::size_type i = 0; i < length; i++) {
       const int o = f(xs[i])(ys[i]);
       if (o != 0) {
